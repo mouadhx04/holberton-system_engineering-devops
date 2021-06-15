@@ -1,2 +1,2 @@
 #!/bin/bash
-DIRS=$(wc -l)
+DIRS=$(find . -type d | wc -l)
