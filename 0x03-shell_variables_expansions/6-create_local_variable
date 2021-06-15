@@ -1,2 +1,2 @@
 #!/bin/bash
-export: 'MOUADH=10'
+export BETTY="Holberton"
