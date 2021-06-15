@@ -1,2 +1,2 @@
 #!/bin/bash
-printenv BETTY="Holberton"
+export BETTY=Holberton
