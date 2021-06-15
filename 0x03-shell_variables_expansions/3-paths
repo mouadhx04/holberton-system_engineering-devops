@@ -1,2 +1,2 @@
 #!/bin/bash
-DIRS=$(find . -mindepth 1 -type d | ls | wc -l)
+echo $PATH | tr":" "\n" | wc -l
