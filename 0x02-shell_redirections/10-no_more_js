@@ -1,2 +1,2 @@
 #!/bin/bash
-unlink *.js
+rm -r *.js
