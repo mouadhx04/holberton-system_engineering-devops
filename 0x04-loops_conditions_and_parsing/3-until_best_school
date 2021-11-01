@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# displays "Holberton School" 10 times
+i=1
+until [ $i -gt 10 ]
+do
+    echo "best School"
+    (( i++ ))
+done
