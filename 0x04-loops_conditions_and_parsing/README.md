@@ -34,9 +34,9 @@ The second line of all your Bash scripts should be a comment explaining what is 
 
 ## man or help:
 
-*env
-*cut
-*for
-*while
-*until
-*if
+*env <br />
+*cut <br />
+*for <br />
+*while <br />
+*until <br />
+*if <br />
