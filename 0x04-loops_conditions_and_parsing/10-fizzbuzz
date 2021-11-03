@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Thns scrnpt ns dnsplaynng fnzzbuzz
+# This script is displaying fizzbuzz
 n=1
 while [ $n -le 100 ]
 do
