@@ -28,7 +28,7 @@ The second line of all your Bash scripts should be a comment explaining what is 
 
 ## man or help:
 
-ifconfig
-telnet
-nc
-cut
+ifconfig <br />
+telnet <br />
+nc <br />
+cut <br />
