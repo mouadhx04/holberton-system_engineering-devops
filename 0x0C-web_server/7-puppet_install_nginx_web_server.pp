@@ -1,16 +1,16 @@
 # Install Nginx web server (w/ Puppet)
 exec {'apt-get-update':
-  command => '/usr/bin/apt-get update'
+  command => '/usr/bin/apt-get update',
 }
 
 package {'apache2.2-common':
   ensure  => 'absent',
-  require => Exec['apt-get-update']
+  require => Exec['apt-get-update'],
 }
 
 package { 'nginx':
   ensure  => 'installed',
-  require => Package['apache2.2-common']
+  require => Package['apache2.2-common'],
 }
 
 service {'nginx':
@@ -21,7 +21,7 @@ service {'nginx':
 file { '/var/www/html/index.nginx-debian.html':
   ensure  => 'present',
   content => 'Hellow World',
-  require =>  Package['nginx']
+  require =>  Package['nginx'],
 }
 
 file_line { 'perform a redirection':
