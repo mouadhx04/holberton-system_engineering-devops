@@ -1,4 +1,4 @@
-  # Script that setup a nginx web server on our server + redirection.
+# Script that setup a nginx web server on our server + redirection.
 
 package { 'nginx':
   ensure   => present,
@@ -12,7 +12,7 @@ file { '/var/www/html/index.html':
   content => 'Hellow World',
 }
 
-# Redirect to fabulous Rick Astley page
+# Redirect to Rick Astley Never Gonna Give You Up
 file_line { 'Rick Astley showtime':
   ensure => 'present',
   path   => '/etc/nginx/sites-available/default',
