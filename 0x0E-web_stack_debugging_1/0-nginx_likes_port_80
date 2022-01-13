@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
-sudo apt-get update
-sudo apt-get install nginx
-unlink /etc/nginx/sites-enabled/default
-sudo chown -R "$USER":"$USER" /var/www/
-sudo chown -R "$USER":"$USER" /etc/nginx
-vi /etc/nginx/sites-available/reverse-proxy.config
-sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/defa
-sudo service nginx configtest
-service nginx restart
+#config nginx on port 80
+sudo rm -rf /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
