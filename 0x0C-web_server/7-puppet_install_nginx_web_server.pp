@@ -1,34 +1,29 @@
-# redirect me and nginx
-exec {'apt-get-update':
-  command => '/usr/bin/apt-get update'
-}
-
-package {'apache2.2-common':
-  ensure  => 'absent',
-  require => Exec['apt-get-update']
-}
+  # Script that setup a nginx web server on our server + redirection.
 
 package { 'nginx':
-  ensure  => 'installed',
-  require => Package['apache2.2-common']
+  ensure   => present,
+  provider => 'apt'
 }
 
-service {'nginx':
-  ensure  =>  'running',
-  require => file_line['perform a redirection'],
+# Index page
+file { '/var/www/html/index.html':
+  ensure  => present,
+  path    => '/var/www/html/index.html',
+  content => 'Hellow World'
 }
 
-file { '/var/www/html/index.nginx-debian.html':
-  ensure  => 'present',
-  content => 'Hellow World',
-  require =>  Package['nginx']
+# Redirect to fabulous Rick Astley page
+file_line { 'Rick Astley showtime':
+  ensure => 'present',
+  path   => '/etc/nginx/sites-available/default',
+  after  => 'listen 80 default_server;',
+  line   => '        rewrite ^/redirect_me https://www.youtube.com/watch?v=dQw4w9WgXcQ permanent;'
 }
 
-file_line { 'perform a redirection':
-  ensure  => 'present',
-  path    => '/etc/nginx/sites-enabled/default',
-  line    => 'rewrite ^/redirect_me/$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
-  after   => 'root /var/www/html;',
-  require => Package['nginx'],
-  notify  => Service['nginx'],
+service { 'nginx':
+  ensure     => running,
+  enable     => true,
+  hasrestart => true,
+  require    => Package['nginx'],
+  subscribe  => File_line['Rick Astley showtime']
 }
