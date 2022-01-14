@@ -1,4 +1,4 @@
-  # Script that setup a nginx web server on our server + redirection.
+# Script that setup a nginx web server on our server + redirection.
 
 package { 'nginx':
   ensure   => present,
